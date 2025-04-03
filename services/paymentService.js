@@ -26,13 +26,8 @@ const createPayment = async (amount) => {
 
     return response.data;
   } catch (error) {
-    console.error(
-      "Error al crear el pago:",
-      error.response?.data || error.message
-    );
-
     const errorMessage =
-      error.response?.data?.message || "Error al crear el pago";
+      error.response?.data?.message || "Error to create the payment";
     const statusCode = error.response?.status || 500;
 
     throw new ApiError(errorMessage, statusCode);
